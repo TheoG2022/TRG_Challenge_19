@@ -34,15 +34,17 @@ def generate_account():
 
     # Convert private key into an Ethereum account
     account = Account.privateKeyToAccount(private)
+    
+    account_address = account.address
 
     return account
 
     account.address
 
-def get_balance(w3, address):
+def get_balance(w3, account_address):
     """Using an Ethereum account address access the balance of Ether"""
     # Get balance of address in Wei
-    wei_balance = w3.eth.get_balance(address)
+    wei_balance = w3.eth.get_balance(account_address)
 
     # Convert Wei value to ether
     ether = w3.fromWei(wei_balance, "ether")
@@ -76,6 +78,6 @@ def send_transaction(w3, account, to, wage):
     signed_tx = account.signTransaction(raw_tx)
 
     # Send the signed transactions
-    return w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+    return signed_tx
     
     #w3.eth.sendRawTransaction(signed_tx.rawTransaction)

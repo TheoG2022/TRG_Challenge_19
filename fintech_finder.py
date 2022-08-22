@@ -29,7 +29,7 @@ import streamlit as st
 from dataclasses import dataclass
 from typing import Any, List
 from web3 import Web3
-
+w3 = Web3(Web3.HTTPProvider('HTTP://127.0.0.1:7545'))
 ################################################################################
 # Step 1:
 # Import Ethereum Transaction Functions into the Fintech Finder Application
@@ -134,12 +134,12 @@ st.sidebar.markdown("## Client Account Address and Ethernet Balance in Ether")
 #  Call the `generate_account` function and save it as the variable `account`
 # YOUR CODE HERE
 
-account = generate_account
+#account = generate_account()
 
 ##########################################
 
 # Write the client's Ethereum account address to the sidebar
-#st.sidebar.write(account.address)
+#st.sidebar.write()
 
 ##########################################
 # Step 1 - Part 5:
@@ -151,6 +151,15 @@ account = generate_account
 # Call `get_balance` function and pass it your account address
 # Write the returned ether balance to the sidebar
 # YOUR CODE HERE
+
+account = generate_account()
+
+st.sidebar.write(account.address)
+
+account_address = account.address
+ether_balance = get_balance(w3, account_address)
+
+st.sidebar.write(ether_balance)
 
 ##########################################
 
