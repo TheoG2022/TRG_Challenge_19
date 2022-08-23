@@ -2,3 +2,4 @@
 
 ### Adding screenshots
 
+streamlit view.png
