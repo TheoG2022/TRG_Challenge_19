@@ -254,6 +254,8 @@ st.sidebar.markdown("## Total Wage in Ether")
 
 wage = hours * hourly_rate
 
+to = candidate_address
+
 # @TODO
 # Write the `wage` calculation to the Streamlit sidebar
 # YOUR CODE HERE
@@ -287,7 +289,10 @@ if st.sidebar.button("Send Transaction"):
     # Save the returned transaction hash as a variable named `transaction_hash`
     # YOUR CODE HERE
     
-    transaction_hash = send_transaction
+    transaction_hash = send_transaction(w3, account, to, wage)
+    
+        
+        
 
     # Markdown for the transaction hash
     st.sidebar.markdown("#### Validated Transaction Hash")

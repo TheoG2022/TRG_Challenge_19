@@ -80,4 +80,4 @@ def send_transaction(w3, account, to, wage):
     # Send the signed transactions
     return signed_tx
     
-    #w3.eth.sendRawTransaction(signed_tx.rawTransaction)
+    w3.eth.sendRawTransaction(signed_tx.rawTransaction)
